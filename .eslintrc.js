@@ -1,24 +1,48 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: ['plugin:react/recommended', 'airbnb'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
+    ecmaVersion: 14,
+    sourceType: 'module',
+  },
+  plugins: ['react', '@typescript-eslint'],
+  rules: {
+    'comma-dangle': 'off',
+    '@typescript-eslint/comma-dangle': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'import/prefer-default-export': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/function-component-definition': [
+      2,
+      { namedComponents: 'arrow-function' },
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 14,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
-    "rules": {
-    }
+    'react/button-has-type': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/no-unescaped-entities': 0,
+    '@typescript-eslint/no-explicit-any': 'off',
+    'react/no-unused-prop-types': 'off',
+    'react/require-default-props': 'off',
+    'react/destructuring-assignment': 'off',
+    'no-console': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    'react/no-unknown-property': 'off',
+    'no-restricted-syntax': 'off',
+    'guard-for-in': 'off',
+    'prefer-const': 'off',
+    'no-plusplus': 'off',
+    'react/no-array-index-key': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'consistent-return': 'off',
+    'react/jsx-no-useless-fragment': 'off',
+    'react/no-danger': 'off',
+    'linebreak-style': 0,
+  },
 };
