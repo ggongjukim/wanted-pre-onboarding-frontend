@@ -9,17 +9,17 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
 
     font-family:  'Noto Sans KR', sans-serif;
-    font-weight: bold;
-    font-size: 36pt;
+    font-weight: normal;
+    font-size: ${(props) => props.theme.fontsize.middle};
     color: ${(props) => props.theme.colors.text[0]};
   }
   h1{
     font-weight: 500;
-    font-size: 36pt;
+    font-size: ${(props) => props.theme.fontsize.big};
   }
   h3{
-    font-weight: bold;
-    font-size: 24pt;
+    font-weight: normal;
+    font-size: ${(props) => props.theme.fontsize.middle};
   }
   a{
     text-decoration:none;
@@ -32,6 +32,12 @@ const GlobalStyles = createGlobalStyle`
     color:  ${(props) => props.theme.colors.text[2]};
     font-family:  'Noto Sans KR', sans-serif;
     border: 0;
+    :hover{
+      background-color : ${(props) => props.theme.colors.green[1]};
+    }
+  }
+  div{
+    box-sizing:border-box;
   }
 
 `;

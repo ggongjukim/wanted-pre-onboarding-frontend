@@ -6,8 +6,15 @@ const colors = {
   warning: ['#E9DAC1', '#F7ECDE'],
 };
 
+const fontsize = {
+  big: '36pt',
+  middle: '24pt',
+  small: '16pt',
+};
 export type ColorTypes = typeof colors;
+export type FontSizeTypes = typeof fontsize;
 
 export const theme: DefaultTheme = {
   colors,
+  fontsize,
 };

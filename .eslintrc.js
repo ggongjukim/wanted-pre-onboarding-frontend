@@ -25,6 +25,7 @@ module.exports = {
     },
   },
   rules: {
+    'linebreak-style': 0,
     // General
     'no-console': ['error', { allow: ['debug', 'warn', 'error'] }],
     // TypeScript
