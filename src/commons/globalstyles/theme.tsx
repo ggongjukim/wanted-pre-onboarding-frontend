@@ -1,4 +1,4 @@
-import { DefaultTheme } from 'styled-components';
+import type { DefaultTheme } from 'styled-components';
 
 const colors = {
   text: ['#000000', '#808080', '#ffffff'],

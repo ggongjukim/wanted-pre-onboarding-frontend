@@ -1,4 +1,5 @@
 import { RecoilRoot } from 'recoil';
+
 import Router from './Router';
 
 const App = () => (
