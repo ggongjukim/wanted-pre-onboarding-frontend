@@ -27,7 +27,9 @@ module.exports = {
   rules: {
     'linebreak-style': 0,
     // General
-    'no-console': ['error', { allow: ['debug', 'warn', 'error'] }],
+    // 'no-console': ['error', { allow: ['debug', 'warn', 'error'] }],
+    // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': 'off',
     // TypeScript
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',

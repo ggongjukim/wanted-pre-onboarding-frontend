@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import SignIn from './signin/index';
+import SignUp from './signup/index';
 
 const Router = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   </BrowserRouter>
 );
