@@ -26,6 +26,8 @@ module.exports = {
   },
   rules: {
     'linebreak-style': 0,
+    '@typescript-eslint/no-implicit-any-catch': 'off',
+
     // General
     // 'no-console': ['error', { allow: ['debug', 'warn', 'error'] }],
     // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -45,7 +47,7 @@ module.exports = {
     ],
     'no-duplicate-imports': 'off',
     '@typescript-eslint/no-duplicate-imports': 'error',
-    '@typescript-eslint/no-implicit-any-catch': 'error',
+    // '@typescript-eslint/no-implicit-any-catch': 'error',
     'no-invalid-this': 'off',
     '@typescript-eslint/no-invalid-this': 'error',
     '@typescript-eslint/no-invalid-void-type': 'error',
