@@ -26,8 +26,7 @@ const SignUp = () => {
     }
   };
   return (
-    <>
-      <S.Form>
+    <S.Form>
         <div>
           이메일
           <Input
@@ -48,7 +47,6 @@ const SignUp = () => {
         </div>
         <Confirmbutton onClick={handelConfirmButton} name="회원가입" />
       </S.Form>
-    </>
   );
 };
 
