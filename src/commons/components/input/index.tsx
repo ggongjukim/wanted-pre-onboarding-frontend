@@ -5,6 +5,7 @@ const Input = (props: any) => (
     ref={props.refname}
     type={props.type}
     placeholder={props.name}
+    data-testid={props.datatestid}
   ></S.Input>
 );
 export default Input;
