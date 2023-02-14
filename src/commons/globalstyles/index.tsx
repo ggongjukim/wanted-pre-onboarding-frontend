@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
     cursor: pointer;
     border:0;
     outline:0;
-
+    font-family: 'Noto Sans KR', sans-serif;
   }
   div{
     box-sizing:border-box;

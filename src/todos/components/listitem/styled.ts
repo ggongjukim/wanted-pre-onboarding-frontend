@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { Input } from '../../../commons/components/input/styled';
 import checkIcon from '../../assets/checkIcon.png';
 
 export const ItemContainer = styled.div`
@@ -13,8 +14,8 @@ export const ItemContainer = styled.div`
 
   input[type='checkbox'] {
     /* display: none; */
-    width: 60px;
-    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
   }
   /* input[type='checkbox'] + label {
     display: inline-block;
@@ -45,6 +46,14 @@ export const Title = styled.div`
   padding-left: 20px;
 `;
 
+export const EditInput = styled(Input)`
+  width: 700px;
+  height: 60px;
+  border-color: ${(props) => props.theme.colors.green[1]};
+`;
 export const Button = styled.button`
   background-color: white;
+  font-weight: bold;
+  font-size: ${(props) => props.theme.fontsize.small};
+  color: ${(props) => props.theme.colors.green[1]};
 `;

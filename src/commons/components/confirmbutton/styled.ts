@@ -8,8 +8,6 @@ export const Confirmbutton = styled.button`
   border-radius: 12px;
   background-color: ${(props) => props.theme.colors.green[0]};
   color: ${(props) => props.theme.colors.text[2]};
-  font-family: 'Noto Sans KR', sans-serif;
-  border: 0;
   :hover {
     background-color: ${(props) => props.theme.colors.green[1]};
   }
