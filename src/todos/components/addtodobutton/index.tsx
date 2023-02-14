@@ -1,4 +1,4 @@
-import { ReactComponent as SaveIcon } from './saveIcon.svg';
+import { ReactComponent as SaveIcon } from '../../assets/saveIcon.svg';
 import * as S from './styled';
 
 const AddTodoButton = (props: any) => (
