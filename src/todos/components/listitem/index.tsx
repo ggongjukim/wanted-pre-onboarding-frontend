@@ -5,20 +5,20 @@ import { ReactComponent as DeleteIcon } from '../../assets/deleteIcon.svg';
 import { ReactComponent as EditIcon } from '../../assets/editIcon.svg';
 
 interface IListItem {
-  readonly todo: {
-    readonly checked: boolean;
-    readonly title: string;
+  readonly content: {
+    readonly isCompleted: boolean;
+    readonly todo: string;
   };
 }
 
-const ListItem = ({ todo }: IListItem) => {
+const ListItem = ({ content }: IListItem) => {
   const [isEdit, setisEdit] = useState(false);
   return (
     <S.ItemContainer>
       <input type="checkbox" />
       {!isEdit ? (
         <>
-          <S.Title>{todo.title}</S.Title>
+          <S.Title>{content.todo}</S.Title>
           <S.Button onClick={() => setisEdit(true)}>
             <EditIcon />
           </S.Button>
@@ -28,7 +28,7 @@ const ListItem = ({ todo }: IListItem) => {
         </>
       ) : (
         <>
-          <S.EditInput defaultValue={todo.title}></S.EditInput>
+          <S.EditInput defaultValue={content.todo}></S.EditInput>
           <S.Button onClick={() => setisEdit(false)}>취소</S.Button>
           <S.Button onClick={() => setisEdit(false)}>완료</S.Button>
         </>
@@ -38,7 +38,7 @@ const ListItem = ({ todo }: IListItem) => {
 };
 
 ListItem.defaultProps = {
-  todo: { checked: false, title: '제목 미정' },
+  content: { isCompleted: false, todo: '제목 미정' },
 };
 
 export default ListItem;
