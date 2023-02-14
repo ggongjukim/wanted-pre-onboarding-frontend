@@ -8,9 +8,9 @@ import { client } from '../commons/axiosInstance';
 import Confirmbutton from '../commons/components/confirmbutton';
 import Input from '../commons/components/input';
 
-const SignUp = () => {
+const SignIn = () => {
   const navigate = useNavigate();
-  console.log('signup');
+  console.log('signin');
   const emailRef = useRef<HTMLInputElement>();
   const pwRef = useRef<HTMLInputElement>();
 
@@ -29,11 +29,12 @@ const SignUp = () => {
     if (pw != null && pw.length >= 8 && email != null && email.includes('@')) {
       try {
         const result = await client
-          .post('auth/signup', { email, password: pw })
+          .post('auth/signin', { email, password: pw })
           .then((res) => res.data);
         console.log('result', result);
-        alert('성공!');
-        navigate('/signin');
+        localStorage.setItem('token', result.access_token);
+        alert('로그인 성공!');
+        navigate('/todos');
       } catch (err: any) {
         alert(err.response.data.message);
       }
@@ -69,11 +70,11 @@ const SignUp = () => {
       </div>
       <Confirmbutton
         onClick={handelConfirmButton}
-        name="회원가입"
-        datatestid="signup-button"
+        name="로그인"
+        datatestid="signin-button"
       />
     </S.Form>
   );
 };
 
-export default SignUp;
+export default SignIn;

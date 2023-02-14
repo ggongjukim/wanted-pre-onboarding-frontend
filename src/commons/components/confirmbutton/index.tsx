@@ -1,7 +1,9 @@
 import * as S from './styled';
 
 const Confirmbutton = (props: any) => (
-  <S.Confirmbutton onClick={props.onClick}>{props.name}</S.Confirmbutton>
+  <S.Confirmbutton onClick={props.onClick} data-testid={props.datatestid}>
+    {props.name}
+  </S.Confirmbutton>
 );
 
 export default Confirmbutton;
