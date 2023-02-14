@@ -31,7 +31,6 @@ const SignIn = () => {
         const result = await client
           .post('auth/signin', { email, password: pw })
           .then((res) => res.data);
-        console.log('result', result);
         localStorage.setItem('token', result.access_token);
         alert('로그인 성공!');
         navigate('/todos');
