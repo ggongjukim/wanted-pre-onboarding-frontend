@@ -28,13 +28,9 @@ const GlobalStyles = createGlobalStyle`
   }
   button{
     cursor: pointer;
-    background-color : ${(props) => props.theme.colors.green[0]};
-    color:  ${(props) => props.theme.colors.text[2]};
-    font-family:  'Noto Sans KR', sans-serif;
-    border: 0;
-    :hover{
-      background-color : ${(props) => props.theme.colors.green[1]};
-    }
+    border:0;
+    outline:0;
+    font-family: 'Noto Sans KR', sans-serif;
   }
   div{
     box-sizing:border-box;
