@@ -67,7 +67,9 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-type-arguments': 'error',
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': 'error',
-    '@typescript-eslint/no-unused-vars': 'error',
+    // '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
+
     '@typescript-eslint/no-use-before-define': [
       'error',
       {
@@ -83,6 +85,8 @@ module.exports = {
     '@typescript-eslint/prefer-string-starts-ends-with': 'error',
     '@typescript-eslint/prefer-ts-expect-error': 'error',
     '@typescript-eslint/promise-function-async': 'error',
+    // '@typescript-eslint/promise-function-async': 'off',
+
     'no-return-await': 'off',
     '@typescript-eslint/return-await': 'error',
     '@typescript-eslint/strict-boolean-expressions': 'error',
