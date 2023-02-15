@@ -25,3 +25,7 @@ export const updateTodo = async (
     .then((res) => res);
   console.log('updateTodo', result);
 };
+
+export const deleteTodo = async (id: number) => {
+  const result = await accessClient.delete(`todos/${id}`);
+};

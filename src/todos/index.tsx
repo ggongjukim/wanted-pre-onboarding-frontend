@@ -10,7 +10,6 @@ import Input from '../commons/components/input';
 const Todos = () => {
   const createInputRef = useRef<HTMLInputElement>();
   const [todos, setTodos] = useState([]);
-  console.log(todos);
 
   useEffect(() => {
     getTodos(setTodos);

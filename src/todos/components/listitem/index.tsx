@@ -1,9 +1,10 @@
 import { useState, useRef } from 'react';
 
+import { accessClient } from './../../../commons/axiosInstance/index';
 import * as S from './styled';
 import { ReactComponent as DeleteIcon } from '../../assets/deleteIcon.svg';
 import { ReactComponent as EditIcon } from '../../assets/editIcon.svg';
-import { updateTodo } from '../../utils';
+import { updateTodo, deleteTodo } from '../../utils';
 
 interface IListItem {
   readonly content: {
@@ -20,6 +21,7 @@ const ListItem = ({ content, reloadTodos }: IListItem) => {
   const updateInputRef = useRef<HTMLInputElement>(null);
 
   const [isEdit, setisEdit] = useState(false);
+
   const updateHandler = () => {
     updateTodo(
       content.id,
@@ -30,6 +32,11 @@ const ListItem = ({ content, reloadTodos }: IListItem) => {
     });
   };
 
+  const deleteHandler = () => {
+    deleteTodo(content.id).then(() => {
+      reloadTodos();
+    });
+  };
   return (
     <S.ItemContainer>
       <input
@@ -43,7 +50,7 @@ const ListItem = ({ content, reloadTodos }: IListItem) => {
           <S.Button onClick={() => setisEdit(true)}>
             <EditIcon />
           </S.Button>
-          <S.Button>
+          <S.Button onClick={deleteHandler}>
             <DeleteIcon />
           </S.Button>
         </>
