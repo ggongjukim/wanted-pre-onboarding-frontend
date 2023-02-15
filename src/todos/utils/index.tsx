@@ -3,9 +3,11 @@ import { accessClient } from './../../commons/axiosInstance/index';
 export const getTodos = async (setTodos: any) => {
   const result = await accessClient
     .get('todos')
-    .then((res) => res.data)
+    .then((res) => {
+      console.log('getTodos', res);
+      return res.data;
+    })
     .then((res) => setTodos(res));
-  console.log('getTodos', result);
 };
 
 export const createTodo = async (content: any) => {

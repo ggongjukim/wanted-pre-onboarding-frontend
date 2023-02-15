@@ -12,7 +12,7 @@ const Todos = () => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    getTodos(setTodos).catch((err) => setTodos([]));
+    getTodos(setTodos);
   }, []);
 
   const createHandler = () => {

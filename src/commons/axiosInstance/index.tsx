@@ -17,3 +17,16 @@ export const accessClient = axios.create({
     Authorization: `Bearer ${token}`,
   },
 });
+
+accessClient.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response.status === 401) {
+      if (localStorage.getItem('token')) {
+        window.location.reload();
+      }
+    }
+  },
+);
