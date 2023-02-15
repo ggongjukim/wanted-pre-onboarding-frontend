@@ -1,7 +1,7 @@
 ### 원티드 프리온보딩 프론트엔드 인턴쉽 선발 과제
 Todo List
 ***
-### ⭐ [배포 링크](https://todolist-q456pisw8-ggongjukim.vercel.app/signup)
+### ⭐ [배포 링크](https://todolist-q456pisw8-ggongjukim.vercel.app/signup)⭐
 
 
 ### 기술 스택
