@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import * as S from './styled';
 import { ReactComponent as DeleteIcon } from '../../assets/deleteIcon.svg';
 import { ReactComponent as EditIcon } from '../../assets/editIcon.svg';
+import { updateTodo } from '../../utils';
 
 interface IListItem {
   readonly content: {
@@ -11,13 +12,31 @@ interface IListItem {
     readonly isCompleted: boolean;
     readonly userId: number;
   };
+  readonly reloadTodos: () => Promise<void>;
 }
 
-const ListItem = ({ content }: IListItem) => {
+const ListItem = ({ content, reloadTodos }: IListItem) => {
+  const checkboxRef = useRef<HTMLInputElement>(null);
+  const updateInputRef = useRef<HTMLInputElement>(null);
+
   const [isEdit, setisEdit] = useState(false);
+  const updateHandler = () => {
+    updateTodo(
+      content.id,
+      updateInputRef.current?.value,
+      checkboxRef.current?.checked,
+    ).then(() => {
+      reloadTodos().then(() => setisEdit(false));
+    });
+  };
+
   return (
     <S.ItemContainer>
-      <input type="checkbox" defaultChecked={content.isCompleted} />
+      <input
+        ref={checkboxRef}
+        type="checkbox"
+        defaultChecked={content.isCompleted}
+      />
       {!isEdit ? (
         <>
           <S.Title>{content.todo}</S.Title>
@@ -30,9 +49,12 @@ const ListItem = ({ content }: IListItem) => {
         </>
       ) : (
         <>
-          <S.EditInput defaultValue={content.todo}></S.EditInput>
+          <S.EditInput
+            ref={updateInputRef}
+            defaultValue={content.todo}
+          ></S.EditInput>
           <S.Button onClick={() => setisEdit(false)}>취소</S.Button>
-          <S.Button onClick={() => setisEdit(false)}>완료</S.Button>
+          <S.Button onClick={updateHandler}>완료</S.Button>
         </>
       )}
     </S.ItemContainer>

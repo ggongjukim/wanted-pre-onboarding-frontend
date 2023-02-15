@@ -1,7 +1,6 @@
 // import AddTodoButton from './components/addtodobutton';
 import { useState, useEffect, useRef } from 'react';
 
-import { accessClient } from './../commons/axiosInstance';
 import { ReactComponent as AddIcon } from './assets/addIcon.svg';
 import ListItem from './components/listitem';
 import * as S from './styled';
@@ -36,7 +35,10 @@ const Todos = () => {
       <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
         {todos.map((content: any) => (
           <li key={content.id}>
-            <ListItem content={content} />
+            <ListItem
+              content={content}
+              reloadTodos={async () => getTodos(setTodos)}
+            />
           </li>
         ))}
       </ul>
