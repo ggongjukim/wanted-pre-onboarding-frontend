@@ -37,12 +37,19 @@ const ListItem = ({ content, reloadTodos }: IListItem) => {
       reloadTodos();
     });
   };
+
+  const checkboxUpdate = (e: React.FormEvent<HTMLInputElement>) => {
+    updateTodo(content.id, content.todo, e.currentTarget.checked).then(() => {
+      reloadTodos();
+    });
+  };
   return (
     <S.ItemContainer>
       <input
         ref={checkboxRef}
         type="checkbox"
         defaultChecked={content.isCompleted}
+        onChange={checkboxUpdate}
       />
       {!isEdit ? (
         <>
