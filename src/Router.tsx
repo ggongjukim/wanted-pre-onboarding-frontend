@@ -4,12 +4,17 @@ import SignIn from './signin';
 import SignUp from './signup';
 import Todos from './todos';
 
+const token = () => localStorage.getItem('token');
+const GoSignUp = () => <>{token() ? <Navigate to="/todos" /> : <SignUp />}</>;
+const GoSignIn = () => <>{token() ? <Navigate to="/todos" /> : <SignIn />}</>;
+const GoTodos = () => <>{token() ? <Todos /> : <Navigate to="/signin" />}</>;
+
 const Router = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/todos" element={<Todos />} />
+      <Route path="/signup" element={<GoSignUp />} />
+      <Route path="/signin" element={<GoSignIn />} />
+      <Route path="/todos" element={<GoTodos />} />
     </Routes>
   </BrowserRouter>
 );

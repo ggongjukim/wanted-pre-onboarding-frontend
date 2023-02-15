@@ -1,6 +1,8 @@
 // import AddTodoButton from './components/addtodobutton';
 import { useState, useEffect, useRef } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import { ReactComponent as AddIcon } from './assets/addIcon.svg';
 import ListItem from './components/listitem';
 import * as S from './styled';
@@ -8,8 +10,14 @@ import { getTodos, createTodo } from './utils';
 import Input from '../commons/components/input';
 
 const Todos = () => {
+  const navigate = useNavigate();
+
   const createInputRef = useRef<HTMLInputElement>();
   const [todos, setTodos] = useState([]);
+
+  // useEffect(() => {
+  //   if (!localStorage.getItem('token')) navigate('/signin');
+  // });
 
   useEffect(() => {
     getTodos(setTodos);

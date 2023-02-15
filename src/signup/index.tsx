@@ -23,6 +23,10 @@ const SignUp = () => {
     else setbuttonState(true);
   };
 
+  // useEffect(() => {
+  //   if (localStorage.getItem('token')) navigate('/todos');
+  // });
+
   useEffect(() => {
     emailRef.current?.focus();
   }, []);
