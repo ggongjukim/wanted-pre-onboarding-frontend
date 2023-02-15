@@ -12,7 +12,7 @@ const Todos = () => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    getTodos(setTodos);
+    getTodos(setTodos).catch((err) => setTodos([]));
   }, []);
 
   const createHandler = () => {
@@ -32,14 +32,18 @@ const Todos = () => {
       </S.AddContainer>
 
       <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
-        {todos.map((content: any) => (
-          <li key={content.id}>
-            <ListItem
-              content={content}
-              reloadTodos={async () => getTodos(setTodos)}
-            />
-          </li>
-        ))}
+        {todos.length === 0 ? (
+          <S.NoneTodo>할일을 추가해 보세요</S.NoneTodo>
+        ) : (
+          todos.map((content: any) => (
+            <li key={content.id}>
+              <ListItem
+                content={content}
+                reloadTodos={async () => getTodos(setTodos)}
+              />
+            </li>
+          ))
+        )}
       </ul>
     </>
   );
