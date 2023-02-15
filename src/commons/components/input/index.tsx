@@ -6,6 +6,7 @@ const Input = (props: any) => (
     type={props.type}
     placeholder={props.name}
     data-testid={props.datatestid}
+    onChange={props.onChange}
   ></S.Input>
 );
 export default Input;

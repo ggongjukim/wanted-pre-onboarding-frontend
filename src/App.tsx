@@ -1,11 +1,5 @@
-import { RecoilRoot } from 'recoil';
-
 import Router from './Router';
 
-const App = () => (
-  <RecoilRoot>
-    <Router />
-  </RecoilRoot>
-);
+const App = () => <Router />;
 
 export default App;

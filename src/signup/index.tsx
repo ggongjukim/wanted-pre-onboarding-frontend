@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 // import axios, { AxiosError } from 'axios';
 
 import { useNavigate } from 'react-router-dom';
@@ -10,9 +10,22 @@ import Input from '../commons/components/input';
 
 const SignUp = () => {
   const navigate = useNavigate();
-  console.log('signup');
   const emailRef = useRef<HTMLInputElement>();
   const pwRef = useRef<HTMLInputElement>();
+  const [buttonState, setbuttonState] = useState(false);
+
+  const validateInput = () => {
+    const email = emailRef.current?.value;
+    const pw = pwRef.current?.value;
+
+    if (pw != null && pw.length >= 8 && email != null && email.includes('@'))
+      setbuttonState(false);
+    else setbuttonState(true);
+  };
+
+  // useEffect(() => {
+  //   if (localStorage.getItem('token')) navigate('/todos');
+  // });
 
   useEffect(() => {
     emailRef.current?.focus();
@@ -22,29 +35,17 @@ const SignUp = () => {
     e: React.MouseEvent<HTMLButtonElement>,
   ) => {
     e.preventDefault();
-    console.log('handelConfirmButton');
     const email = emailRef.current?.value;
     const pw = pwRef.current?.value;
 
-    if (pw != null && pw.length >= 8 && email != null && email.includes('@')) {
-      try {
-        const result = await client
-          .post('auth/signup', { email, password: pw })
-          .then((res) => res.data);
-        console.log('result', result);
-        alert('성공!');
-        navigate('/signin');
-      } catch (err: any) {
-        alert(err.response.data.message);
-      }
-    } else {
-      if (email != null && !email.includes('@')) {
-        alert('이메일을 정확히 입력해주세요');
-      }
-
-      if (pw != null && pw.length < 8) {
-        alert('비밀번호를 8자리 이상 입력해주세요');
-      }
+    try {
+      const result = await client
+        .post('auth/signup', { email, password: pw })
+        .then((res) => res.data);
+      alert('회원가입 성공! 로그인 해주세요');
+      navigate('/signin');
+    } catch (err: any) {
+      alert(err.response.data.message);
     }
   };
   return (
@@ -56,6 +57,7 @@ const SignUp = () => {
           type="text"
           name="이메일을 입력하세요"
           datatestid="email-input"
+          onChange={validateInput}
         />
       </div>
       <div>
@@ -65,6 +67,7 @@ const SignUp = () => {
           type="password"
           name="비밀번호를 입력하세요"
           datatestid="email-input"
+          onChange={validateInput}
         />
       </div>
       <Confirmbutton
@@ -72,6 +75,15 @@ const SignUp = () => {
         name="회원가입"
         datatestid="signup-button"
       />
+      {buttonState ? (
+        <S.Warn>
+          이메일을 형식을 확인해주세요
+          <br />
+          비밀번호를 8자리 이상 입력해주세요
+        </S.Warn>
+      ) : (
+        <></>
+      )}
     </S.Form>
   );
 };

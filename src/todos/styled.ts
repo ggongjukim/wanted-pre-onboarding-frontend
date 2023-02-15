@@ -13,3 +13,10 @@ export const AddContainer = styled.div`
     background-color: white;
   }
 `;
+
+export const NoneTodo = styled.div`
+  width: 920px;
+  margin: 50px auto;
+  text-align: center;
+  color: ${(props) => props.theme.colors.warning[0]};
+`;
