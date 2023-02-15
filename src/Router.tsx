@@ -12,6 +12,7 @@ const GoTodos = () => <>{token() ? <Todos /> : <Navigate to="/signin" />}</>;
 const Router = () => (
   <BrowserRouter>
     <Routes>
+      <Route path="/" element={<Navigate to="/signup" />} />
       <Route path="/signup" element={<GoSignUp />} />
       <Route path="/signin" element={<GoSignIn />} />
       <Route path="/todos" element={<GoTodos />} />

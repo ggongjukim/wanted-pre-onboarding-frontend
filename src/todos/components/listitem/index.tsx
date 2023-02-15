@@ -54,21 +54,29 @@ const ListItem = ({ content, reloadTodos }: IListItem) => {
       {!isEdit ? (
         <>
           <S.Title>{content.todo}</S.Title>
-          <S.Button onClick={() => setisEdit(true)}>
+          <S.Button onClick={() => setisEdit(true)} data-testid="modify-button">
             <EditIcon />
           </S.Button>
-          <S.Button onClick={deleteHandler}>
+          <S.Button onClick={deleteHandler} data-testid="delete-button">
             <DeleteIcon />
           </S.Button>
         </>
       ) : (
         <>
           <S.EditInput
+            data-testid="modify-input"
             ref={updateInputRef}
             defaultValue={content.todo}
           ></S.EditInput>
-          <S.Button onClick={() => setisEdit(false)}>취소</S.Button>
-          <S.Button onClick={updateHandler}>완료</S.Button>
+          <S.Button
+            onClick={() => setisEdit(false)}
+            data-testid="cancel-button"
+          >
+            취소
+          </S.Button>
+          <S.Button onClick={updateHandler} data-testid="submit-button">
+            제출
+          </S.Button>
         </>
       )}
     </S.ItemContainer>

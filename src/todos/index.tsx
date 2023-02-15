@@ -32,8 +32,12 @@ const Todos = () => {
   return (
     <>
       <S.AddContainer>
-        <Input name="할일 추가" refname={createInputRef} />
-        <button onClick={createHandler}>
+        <Input
+          name="할일 추가"
+          refname={createInputRef}
+          datatestid="new-todo-input"
+        />
+        <button onClick={createHandler} data-testid="new-todo-add-button">
           <AddIcon />
         </button>
       </S.AddContainer>

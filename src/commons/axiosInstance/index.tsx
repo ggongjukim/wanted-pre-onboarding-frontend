@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const URL = 'http://localhost:8000';
+export const URL = 'https://pre-onboarding-selection-task.shop/';
 
 export const client = axios.create({
   baseURL: URL,

@@ -66,7 +66,7 @@ const SignUp = () => {
           refname={pwRef}
           type="password"
           name="비밀번호를 입력하세요"
-          datatestid="email-input"
+          datatestid="password-input"
           onChange={validateInput}
         />
       </div>
