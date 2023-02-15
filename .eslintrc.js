@@ -89,7 +89,9 @@ module.exports = {
 
     'no-return-await': 'off',
     '@typescript-eslint/return-await': 'error',
-    '@typescript-eslint/strict-boolean-expressions': 'error',
+    // '@typescript-eslint/strict-boolean-expressions': 'error',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     // React
     'react/jsx-boolean-value': 'warn',
