@@ -3,7 +3,7 @@ import { useRef } from 'react';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { accessClient } from './../commons/axiosInstance/index';
+import { accessClient } from './../commons/axiosInstance';
 import { ReactComponent as AddIcon } from './assets/addIcon.svg';
 import ListItem from './components/listitem';
 import * as S from './styled';
@@ -21,7 +21,7 @@ const Todos = () => {
 
   const { data, isError, isLoading } = useQuery(['alltodos'], getAlltodos);
 
-  const mutation = useMutation(
+  const addmutation = useMutation(
     async (newTodo: any) => accessClient.post('/todos', newTodo),
     {
       onSuccess: () => {
@@ -32,15 +32,15 @@ const Todos = () => {
 
   console.log(data, isError, isLoading);
 
+  const addHandler = () => {
+    addmutation.mutate({ todo: addtodosInputRef.current?.value });
+    if (addtodosInputRef.current) addtodosInputRef.current.value = '';
+  };
   return (
     <>
       <S.AddContainer>
         <Input name="할일 추가" refname={addtodosInputRef} />
-        <button
-          onClick={() => {
-            mutation.mutate({ todo: addtodosInputRef.current?.value });
-          }}
-        >
+        <button onClick={addHandler}>
           <AddIcon />
         </button>
       </S.AddContainer>
@@ -52,7 +52,6 @@ const Todos = () => {
           </li>
         ))}
       </ul>
-      {/* <AddTodoButton /> */}
     </>
   );
 };
