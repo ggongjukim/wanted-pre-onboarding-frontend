@@ -16,7 +16,6 @@ const Todos = () => {
   }, []);
 
   const createHandler = () => {
-    console.log('ref', createInputRef.current?.value);
     createTodo(createInputRef.current?.value).then(() => {
       getTodos(setTodos);
     });

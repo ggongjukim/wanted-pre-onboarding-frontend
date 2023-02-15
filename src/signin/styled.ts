@@ -15,3 +15,11 @@ export const Form = styled.form`
     padding: 20px 0;
   }
 `;
+
+export const Warn = styled.div`
+  color: ${(props) => props.theme.colors.green[1]};
+  font-size: ${(props) => props.theme.fontsize.small};
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+`;
